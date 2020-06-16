@@ -1,0 +1,15 @@
+def topMean (anime, n=5):
+    
+    # Open up an empty list for the output
+    scores = []
+    
+    # Calculating mean rating
+    for (columnName, columnData) in anime.drop(['User'], axis = 1).iteritems():
+        scores.append((columnData.mean(), columnName))
+    
+    # Sorting by highest to lowest
+    scores.sort(reverse=True)
+    
+    return scores [0:n]
+
+topMean(critics, n=5)
